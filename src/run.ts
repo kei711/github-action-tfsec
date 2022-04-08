@@ -70,7 +70,7 @@ function getSeverity(s: string): string {
   if (s.startsWith('LOW')) {
     return 'INFO';
   }
-  return '';
+  return 'UNKNOWN_SEVERITY';
 }
 
 function getURL(result: any): string {
