@@ -136,6 +136,7 @@ ${table}`;
 
   const reporter = github.context.eventName == 'pull_request' ? 'github-pr-review' : 'github-check';
   core.info('Running reviewdog');
+  core.info(JSON.stringify(diagnostics));
   await exec.exec('reviewdog', ['-f', 'rdjson', '-name', 'tfsec', '-filter-mode', 'nofilter', '-reporter', reporter, '-level', 'warning', '-fail-on-error', '1'], {
     input: Buffer.from(JSON.stringify({
       source: {
